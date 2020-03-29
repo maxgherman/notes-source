@@ -1,2 +1,3 @@
-# notes-source
-Notes blog sources
+# Notes blog sources
+
+* [Killing "IF" softly](/killing-if-softly)
