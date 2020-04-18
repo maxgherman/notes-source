@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Large files</title>
+    <style>
+        .files {
+            overflow: hidden;
+            padding-top: 100px;
+            padding-left: 100px;
+        }
+
+        .btn-upload {
+            border: 2px solid rgb(47, 177, 79);
+            color: rgb(47, 177, 79);
+            background-color: white;
+            border-radius: 3px;
+            font-size: 20px;
+        }
+
+        .file-input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="files octet">
+        <div>
+            Chunk size (bytes) <span class="size-round">1 KB</span>
+        </div>
+        <div>
+            <input type="number" class="chunk-size" value="1024" />
+        </div>
+        <br />
+        <div>
+            Delay (milliseconds)
+        </div>
+        <div>    
+            <input type="number" class="delay" value="0" />
+        </div>
+        <br />
+        <div>
+            Parallel upload
+        </div>
+        <div>    
+            <input type="number" class="file-upload-count" value="2" />
+        </div>
+        <br />
+        <div>
+            <button class="btn-upload">Upload files</button>
+            <input type="file" multiple class="file-input">
+        </div>
+        <br />
+        <div class="results">
+        </div>
+    </div>
+
+    <script src="/file-uploader.js"></script>
+    <script src="/index.js"></script>
+</body>
+</html>
