@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -18,7 +19,7 @@ namespace App.Services
         {
             this.blobStorageConfig = blobStorageConfig;
         }
-        
+
         public async Task UploadBlockAsync(Guid fileId, long blockId, Stream block)
         {
             var client = CreateBlockClient(fileId);
@@ -39,10 +40,10 @@ namespace App.Services
         public async Task CommitBlocksAsync(Guid fileId, FileMetadata metadata)
         {
             var client = CreateBlockClient(fileId);
-            
+
             var blockList = await client.GetBlockListAsync();
             var blobBlockIds = blockList.Value.UncommittedBlocks
-                .Select(item => item.Name).ToArray();
+                .Select(item => item.Name);
 
             await client.CommitBlockListAsync(
                 OrderBlobBlockIds(blobBlockIds),
@@ -70,7 +71,7 @@ namespace App.Services
 
             await blobClient.CreateIfNotExistsAsync();
         }
-        
+
         private string GenerateBlobBlockId(long blockId)
         {
             return Convert.ToBase64String(
@@ -80,7 +81,7 @@ namespace App.Services
             );
         }
 
-        private string[] OrderBlobBlockIds(string[] blobBlockIds)
+        private IEnumerable<string> OrderBlobBlockIds(IEnumerable<string> blobBlockIds)
         {
             return blobBlockIds.Select(Convert.FromBase64String)
                 .Select(Encoding.UTF8.GetString)
