@@ -6,13 +6,13 @@ document.querySelector('.octet .btn-upload')
 
 document.querySelector('.octet .file-input')
 .addEventListener('change', (e) => {
-    const chinkSize = document.querySelector('.octet .chunk-size');
+    const chunkSize = document.querySelector('.octet .chunk-size');
     const delay = document.querySelector('.octet .delay');
-    const fileUploadCount = document.querySelector('.octet .file-upload-count') 
+    const fileUploadCount = document.querySelector('.octet .file-upload-count')
 
     const fileUploader = FileUploader(
         Array.from(e.target.files),
-        parseInt(chinkSize.value),
+        parseInt(chunkSize.value),
         parseInt(delay.value),
         parseInt(fileUploadCount.value)
     );
@@ -45,7 +45,7 @@ document.querySelector('.octet .file-input')
     e.target.value = [];
 });
 
-const sizeRound = document.querySelector('.octet .size-round'); 
+const sizeRound = document.querySelector('.octet .size-round');
 
 document.querySelector('.octet .chunk-size')
 .addEventListener('keyup', (e) => {
