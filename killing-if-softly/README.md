@@ -1,6 +1,6 @@
 ### Killing "IF" softly
 
-### [Intro](https://www.max-gherman.dev/2020/03/17/killing-if-softly)
+### [Intro](https://www.max-gherman.dev/blog/2020/03/17/killing-if-softly)
 
 * [Basic example](./01-basic-example.js)
 * [Flattening](./02-flattening.js)
