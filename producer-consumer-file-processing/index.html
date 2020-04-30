@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>File upload</title>
+    <script src="https://unpkg.com/@reactivex/rxjs@6.0.0/dist/global/rxjs.umd.js"></script>
+    <style>
+        .files {
+            overflow: hidden;
+            padding-top: 100px;
+            padding-left: 100px;
+        }
+
+        .btn-upload {
+            border: 2px solid rgb(47, 177, 79);
+            color: rgb(47, 177, 79);
+            background-color: white;
+            border-radius: 3px;
+            font-size: 20px;
+        }
+
+        .file-input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="files octet">
+        <select class="upload-option">
+            <option value="initial">Initial</option>
+            <option value="producer-consumer" >Producer - consumer</option>
+            <option value="observables">Observables</option>
+        </select>
+        <button class="btn-upload">Upload files</button>
+        <input type="file" multiple class="file-input">
+        <div class="results">
+        </div>
+    </div>
+    <script src="/index.js"></script>
+    <script src="/initial-split.js"></script>
+    <script src="/producer-consumer.js"></script>
+    <script src="/observables.js"></script>
+</body>
+</html>
