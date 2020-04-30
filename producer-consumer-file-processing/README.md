@@ -4,6 +4,6 @@
 
 * [Initial example](./initial-split.js)
 * [Producer - consumer](./producer-consumer.js)
-* [Decomposition](./observables.js)
+* [Observables](./observables.js)
 
 ![demo](./demo.gif)
