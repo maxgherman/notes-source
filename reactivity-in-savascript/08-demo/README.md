@@ -1,4 +1,4 @@
-[Source](./index.js)
+[Source](./index.jsx)
 
 Designed by https://codepen.io/supah/
 
