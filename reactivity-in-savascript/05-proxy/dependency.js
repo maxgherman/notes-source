@@ -2,7 +2,7 @@ import { ComputeItem } from './compute-item';
 
 export const Dependency = {
     depend() {
-        let current = ComputeItem.currentComputation;
+        const current = ComputeItem.currentComputation;
 
         if (!current) return;
 

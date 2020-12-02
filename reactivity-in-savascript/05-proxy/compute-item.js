@@ -26,14 +26,14 @@ export const ComputeItem = {
     },
 
     compute() {
-        let current = ComputeItem.currentComputation;
+        const current = ComputeItem.currentComputation;
         ComputeItem.currentComputation = this;
         this.action();
         ComputeItem.currentComputation = current;
     },
 
     create(execute) {
-        let result = Object.assign({}, ComputeItem,
+        const result = Object.assign({}, ComputeItem,
             {
                 computation: null,
                 id: ComputeItem.id++,
