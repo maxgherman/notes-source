@@ -1,6 +1,6 @@
 ### Control flow (Part 1)
 
-### [Intro](https://www.max-gherman.dev)
+### [Intro](https://www.max-gherman.dev/blog/2023/03/17/control-flow-part1)
 
 * [Continuation closures and higher order functions](./01-closures-and-hof.js)
 * [Continuation CPS](./02-cps.js)
