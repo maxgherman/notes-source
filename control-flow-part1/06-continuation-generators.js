@@ -9,8 +9,7 @@ function run(generator, ...args) {
   while (!result.done) {
     result = iterator.next(currentValue);
 
-    if(isGenerator(result.value))
-    {
+    if(isGenerator(result.value)) {
       iterator = result.value(currentValue);
       result = iterator.next(currentValue);
     }
@@ -19,8 +18,7 @@ function run(generator, ...args) {
       const prevValue = currentValue;
       currentValue = result.value;
 
-      if(isGenerator(currentValue))
-      {
+      if(isGenerator(currentValue)) {
         iterator = currentValue(prevValue);
       }
     }
@@ -29,7 +27,7 @@ function run(generator, ...args) {
   return currentValue;
  }
 
- function* divide(x, y, next) {
+ const divide = (x, y) => function* (next) {
   if (y === 0) {
     yield new Error("Division by zero");
   } else {
@@ -51,5 +49,7 @@ function* continuation(result) {
   yield `Result: ${result}`;
 }
 
-const result = run(divide, 10, 0, handler(continuation));
+const div = divide(10, 0);
+const handle = handler(continuation);
+const result = run(div, handle);
 console.log(result)
