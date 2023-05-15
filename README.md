@@ -6,3 +6,4 @@
 * [Statistical analysis while staying at home](/statistical-analysis)
 * [Reactivity in JavaScript](/reactivity-in-savascript)
 * [Control flow (Part 1)](/control-flow-part1)
+* [Control flow (Part 2)](/control-flow-part2)

@@ -1,0 +1,17 @@
+### Control flow (Part 2)
+
+### [Intro](https://www.max-gherman.dev/blog/2023/05/19/control-flow-part2)
+
+* [Computation with explicit result](./01-explicit-result.js)
+* [Algebraic handler](./02-algebraic-handler.js)
+* [Algebraic handler with stack shifting](./03-algebraic-handler-with-cc.js)
+* [Algebraic handler with promises](./04-continuation-composition.js)
+* [Algebraic handlers with composition](./05-algebraic-handler-composition.js)
+* [Algebraic handlers with generators](./06-algebraic-handler-generators.js)
+* [Channel queues](./07-channel-queue.js)
+* [Channel with promises](./08-channel-promises.js)
+* [Bidirectional channels](./09-bidirectional-channels.js)
+* [Channels chaining](./10-channels-chaining.js)
+* [Actors](./11-actors.js)
+* [Actors fan-out](./12-actors-fan-out.js)
+* [Final example](./13-final-result)

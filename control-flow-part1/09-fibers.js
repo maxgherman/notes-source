@@ -1,5 +1,5 @@
 function Fiber(coroutine) {
-    var iterator = coroutine();
+    const iterator = coroutine();
     let data;
   
     return {

@@ -10,7 +10,7 @@ function coroutine(f) {
   function* divide() {
     let [x, y] = yield;
   
-    while(y == 0){
+    while(y === 0){
       y = yield new Error("Division by zero");
   
     }
