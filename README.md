@@ -1,9 +1,16 @@
-# Notes blog sources
+# Notes sources
 
-* [Killing "IF" softly](/killing-if-softly)
-* [Packing larger files into Azure blobs](/azure-blob-large-files)
-* [Producer - consumer file processing](/producer-consumer-file-processing)
-* [Statistical analysis while staying at home](/statistical-analysis)
-* [Reactivity in JavaScript](/reactivity-in-savascript)
-* [Control flow (Part 1)](/control-flow-part1)
-* [Control flow (Part 2)](/control-flow-part2)
+This repository contains the source material and runnable implementations for different blog posts. Use the references below to jump to the article folder and the main implementation files for each topic.
+
+| Topic | Folder | Implementation references |
+| --- | --- | --- |
+| Killing "IF" softly | [killing-if-softly](./killing-if-softly) | [README](./killing-if-softly/README.md), [examples](./killing-if-softly/01-basic-example.js), [final result](./killing-if-softly/06-final-reult.js) |
+| Packing larger files into Azure blobs | [azure-blob-large-files](./azure-blob-large-files) | [README](./azure-blob-large-files/README.md), [Program](./azure-blob-large-files/Program.cs), [Startup](./azure-blob-large-files/Startup.cs), [storage service](./azure-blob-large-files/Services/FileStorageService.cs) |
+| Producer-consumer file processing | [producer-consumer-file-processing](./producer-consumer-file-processing) | [README](./producer-consumer-file-processing/README.md), [initial split](./producer-consumer-file-processing/initial-split.js), [producer-consumer](./producer-consumer-file-processing/producer-consumer.js), [observables](./producer-consumer-file-processing/observables.js) |
+| Statistical analysis while staying at home | [statistical-analysis](./statistical-analysis) | [README](./statistical-analysis/README.md) |
+| Reactivity in JavaScript | [reactivity-in-savascript](./reactivity-in-savascript) | [README](./reactivity-in-savascript/README.md), [reactive dictionary](./reactivity-in-savascript/04-reactive-dictionary), [proxy](./reactivity-in-savascript/05-proxy), [VDOM](./reactivity-in-savascript/06-vdom), [final result](./reactivity-in-savascript/07-final-result), [demo](./reactivity-in-savascript/08-demo) |
+| Control flow (Part 1) | [control-flow-part1](./control-flow-part1) | [README](./control-flow-part1/README.md), [closures and higher-order functions](./control-flow-part1/01-closures-and-hof.js), [fibers](./control-flow-part1/09-fibers.js) |
+| Control flow (Part 2) | [control-flow-part2](./control-flow-part2) | [README](./control-flow-part2/README.md), [explicit result](./control-flow-part2/01-explicit-result.js), [actors](./control-flow-part2/11-actors.js), [final example](./control-flow-part2/13-final-result) |
+| Beyond the Buzzwords | [beyond-buzzwords](./beyond-buzzwords) | [README](./beyond-buzzwords/README.md), [main flow](./beyond-buzzwords/main.ts), [extract](./beyond-buzzwords/extract.ts), [verify](./beyond-buzzwords/verify.ts), [publish](./beyond-buzzwords/publish.ts), [MCP server](./beyond-buzzwords/mcp_server.ts), [remote deployment](./beyond-buzzwords/remote) |
+| Thinking categorically | [thinking-categorically](./thinking-categorically) | [category](./thinking-categorically/category), [domain and codomain](./thinking-categorically/domain-and-codomain), [functor](./thinking-categorically/functor), [natural transformation](./thinking-categorically/natural-transformation), [product-coproduct-exponential](./thinking-categorically/product-coproduct-exponential) |
+| Software engineering craftsmanship | [software-engineering-craftsmanship](./software-engineering-craftsmanship) | [implementation](./software-engineering-craftsmanship/index.js) |
