@@ -1,0 +1,25 @@
+{
+  "name": "beyond-buzzwords-implementation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node --import tsx main.ts --file sample-input.txt",
+    "run:failure": "node --import tsx main.ts --file sample-failure-input.txt",
+    "run:input": "node --import tsx main.ts --input \"12 145 18 1099 31 176 102 87\"",
+    "run:mcp": "node --import tsx main.ts --publisher mcp --file sample-input.txt",
+    "run:failure:mcp": "node --import tsx main.ts --publisher mcp --file sample-failure-input.txt",
+    "run:ollama": "node --import tsx main.ts --input \"The audience gave me 12, 145, 18, 1099, 31, 176, 102 and 87.\" --ollama-model qwen2.5:3b",
+    "run:ollama:mcp": "node --import tsx main.ts --publisher mcp --input \"The audience gave me 12, 145, 18, 1099, 31, 176, 102 and 87.\" --ollama-model qwen2.5:3b"
+  },
+  "dependencies": {
+    "@aws-sdk/client-ssm": "^3.777.0",
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.20.5",
+    "typescript": "^5.8.2"
+  }
+}
