@@ -1,0 +1,17 @@
+[package]
+name = "million-rps-loadgen"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+httparse = "1"
+md-5 = "0.10"
+rustls = { version = "0.23", default-features = false, features = ["ring", "std"] }
+rustls-pemfile = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["io-util", "macros", "net", "rt-multi-thread", "sync", "time"] }
+tokio-rustls = "0.26"
+url = "2"

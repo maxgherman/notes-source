@@ -1,0 +1,55 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: benchmark
+      POSTGRES_USER: benchmark
+      POSTGRES_PASSWORD: benchmark-local-only
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready --username benchmark --dbname benchmark"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+      - ./db:/benchmark-db:ro
+
+  server:
+    image: million-rps-benchmark:local
+    build:
+      context: .
+      network: host
+    environment:
+      DATABASE_URL: postgres://benchmark:benchmark-local-only@postgres:5432/benchmark
+      DATABASE_MAX_CONNECTIONS: "32"
+      CACHE_CAPACITY_BYTES: "134217728"
+      CACHE_TTL_SECONDS: "3600"
+      TLS_CERT_PATH: "${TLS_CERT_PATH:-}"
+      TLS_KEY_PATH: "${TLS_KEY_PATH:-}"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ./certs:/certs:ro
+    init: true
+
+  loadgen:
+    profiles: ["benchmark"]
+    image: million-rps-benchmark:local
+    user: "${BENCHMARK_UID:-65532}:${BENCHMARK_GID:-65532}"
+    entrypoint: ["million-rps-loadgen"]
+    depends_on:
+      server:
+        condition: service_started
+    volumes:
+      - ./certs:/certs:ro
+      - ./results:/results
+    init: true
+
+volumes:
+  postgres-data:

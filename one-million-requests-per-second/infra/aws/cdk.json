@@ -1,0 +1,3 @@
+{
+  "app": "node --import tsx bin/benchmark.ts"
+}
