@@ -395,22 +395,21 @@ public class ParserCombinatorExample
         Console.WriteLine($"ParseIdentifier(\"hello123\"): Result={idResult?.Result}, Position={idResult?.NewState.Position}");
 
         // Test alternative parser with same types
-        var numberOrConvertedId = StatefulParser.Alternative(
+        var numberOrIdentifierLength = StatefulParser.Alternative(
             StatefulParser.ParseNumber,
             StatefulParser.From<StatefulParser.IntValue>(state =>
             {
                 var idResult = StatefulParser.ParseIdentifier.Parse(state);
                 if (idResult == null) return null;
 
-                if (int.TryParse(idResult.Value.Result, out var num))
-                    return new ParseResult<StatefulParser.IntValue>(new StatefulParser.IntValue(num), idResult.Value.NewState);
-
-                return null;
+                return new ParseResult<StatefulParser.IntValue>(
+                    new StatefulParser.IntValue(idResult.Value.Result.Length),
+                    idResult.Value.NewState);
             })
         );
 
-        Console.WriteLine($"NumberOrId(\"123abc\"): {numberOrConvertedId.Parse(new ParseState("123abc"))?.Result.Value}");
-        Console.WriteLine($"NumberOrId(\"456def\"): {numberOrConvertedId.Parse(new ParseState("456def"))?.Result.Value}");
+        Console.WriteLine($"NumberOrIdentifierLength(\"123abc\"): {numberOrIdentifierLength.Parse(new ParseState("123abc"))?.Result.Value}"); // 123
+        Console.WriteLine($"NumberOrIdentifierLength(\"hello123\"): {numberOrIdentifierLength.Parse(new ParseState("hello123"))?.Result.Value}"); // 8
     }
 
     private static void TestFluentParsers()

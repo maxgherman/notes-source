@@ -70,6 +70,6 @@ main = do
   print $ runCircuit splitterMixer 1.5
 
 -- Direct usage examples:
--- runCircuit audioProcessor 1.0      -- Returns: 1.512
+-- runCircuit audioProcessor 1.0      -- Returns: 4.104
 -- runCircuit serialProcessing 2.5    -- Returns: 3.75
 -- runCircuit parallelAmplifiers (1.0, 2.0) -- Returns: (2.0, 6.0)

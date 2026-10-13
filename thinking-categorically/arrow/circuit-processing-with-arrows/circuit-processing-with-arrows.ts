@@ -72,7 +72,7 @@ const audioProcessor: Circuit<number, number> = circuit(signal => {
 // Example usage
 function testCircuits() {
   console.log("Testing audio processor:");
-  console.log(audioProcessor.run(1.0));  // 1.512
+  console.log(audioProcessor.run(1.0));  // 4.104
 
   console.log("Testing serial processing:");
   console.log(serialProcessing.run(2.5)); // 3.75
@@ -81,7 +81,7 @@ function testCircuits() {
   console.log(parallelAmplifiers.run([1.0, 2.0])); // [2.0, 6.0]
 
   console.log("Testing splitter mixer:");
-  console.log(splitterMixer.run(1.5)); // 3.75
+  console.log(splitterMixer.run(1.5)); // 4.5
 }
 
 // Advanced: Arrow-like operators using fluent interface

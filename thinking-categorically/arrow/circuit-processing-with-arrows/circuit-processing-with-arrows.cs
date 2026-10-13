@@ -161,7 +161,7 @@ public class CircuitProcessingExample
         ICircuit<double, double> splitterMixer)
     {
         Console.WriteLine("Testing audio processor:");
-        Console.WriteLine(audioProcessor.Run(1.0));  // 1.512
+        Console.WriteLine(audioProcessor.Run(1.0));  // 4.104
 
         Console.WriteLine("Testing serial processing:");
         Console.WriteLine(serialProcessing.Run(2.5)); // 3.75
@@ -171,7 +171,7 @@ public class CircuitProcessingExample
         Console.WriteLine($"({left}, {right})"); // (2, 6)
 
         Console.WriteLine("Testing splitter mixer:");
-        Console.WriteLine(splitterMixer.Run(1.5)); // 3.75
+        Console.WriteLine(splitterMixer.Run(1.5)); // 4.5
     }
 }
 
@@ -207,6 +207,6 @@ public class LinqCircuitExample
             .Then(BasicCircuits.SignalFilter(1.0))
             .Select(x => x * 0.5);
 
-        Console.WriteLine("LINQ-style processor:", linqProcessor.Run(1.0)); // 0.75
+        Console.WriteLine($"LINQ-style processor: {linqProcessor.Run(1.0)}"); // 1.5
     }
 }

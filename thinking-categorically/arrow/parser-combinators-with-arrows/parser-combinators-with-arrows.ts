@@ -202,18 +202,17 @@ function testParsers() {
   console.log("parseIdentifier('hello123'):", parseIdentifier.parse(idState)); // { result: "hello123", newState: { input: "hello123", position: 8 } }
 
   // Test alternative parser with same types
-  const numberOrId = alternative(
+  const numberOrIdentifierLength = alternative(
     parseNumber,
     statefulParser(state => {
-      // Convert identifier result to number if it's all digits, otherwise return null
+      // Convert an identifier to its length so both branches return numbers
       const idResult = parseIdentifier.parse(state);
       if (idResult === null) return null;
-      const num = parseInt(idResult.result, 10);
-      return isNaN(num) ? null : { result: num, newState: idResult.newState };
+      return { result: idResult.result.length, newState: idResult.newState };
     })
   );
-  console.log("numberOrId('123abc'):", numberOrId.parse({ input: "123abc", position: 0 })); // number
-  console.log("numberOrId('456def'):", numberOrId.parse({ input: "456def", position: 0 })); // number from identifier
+  console.log("numberOrIdentifierLength('123abc'):", numberOrIdentifierLength.parse({ input: "123abc", position: 0 })); // 123
+  console.log("numberOrIdentifierLength('hello123'):", numberOrIdentifierLength.parse({ input: "hello123", position: 0 })); // 8
 }
 
 // Advanced: Fluent parser builder
