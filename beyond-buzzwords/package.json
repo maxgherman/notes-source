@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-ssm": "^3.777.0",
-    "@modelcontextprotocol/sdk": "^1.31.0",
+    "@modelcontextprotocol/sdk": "^1.32.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {
